@@ -5,3 +5,6 @@ databaseChangeLog:
   - include:
       file: V2__default_values.yaml
       relativeToChangelogFile: true
+  - include:
+      file: V3__sprint_XX.yaml
+      relativeToChangelogFile: true
