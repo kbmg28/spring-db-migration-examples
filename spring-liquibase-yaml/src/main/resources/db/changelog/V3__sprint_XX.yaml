@@ -1,0 +1,10 @@
+databaseChangeLog:
+- changeSet:
+    id: feature_XX-1
+    author: kevin_gomes
+    changes:
+    - dropNotNullConstraint:
+        columnDataType: int
+        columnName: age
+        tableName: user_app
+

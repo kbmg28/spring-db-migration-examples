@@ -23,6 +23,10 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
@@ -42,6 +46,22 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>${liquibase.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.liquibase</groupId>
+					<artifactId>liquibase-commercial</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-maven-plugin</artifactId>
+			<version>${liquibase.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -56,6 +76,15 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<configuration>
+					<!--					this file is used only by CLI, not by spring -->
+					<propertyFile>src/main/resources/liquibase.properties</propertyFile>
 				</configuration>
 			</plugin>
 		</plugins>

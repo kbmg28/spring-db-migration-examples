@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: V1__init.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: V2__default_values.yaml
+      relativeToChangelogFile: true

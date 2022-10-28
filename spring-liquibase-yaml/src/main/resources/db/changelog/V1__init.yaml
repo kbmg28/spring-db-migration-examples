@@ -1,0 +1,67 @@
+databaseChangeLog:
+    - changeSet:
+        id: INIT-1
+        author: kevin_gomes
+        changes:
+        - createTable:
+            columns:
+            - column:
+                autoIncrement: true
+                constraints:
+                  nullable: false
+                  primaryKey: true
+                  primaryKeyName: user_app_pkey
+                name: id
+                type: INTEGER
+            - column:
+                constraints:
+                  nullable: false
+                name: name
+                type: VARCHAR(255)
+            - column:
+                constraints:
+                  nullable: false
+                name: age
+                type: INTEGER
+            - column:
+                  constraints:
+                      nullable: false
+                  name: user_status
+                  type: BIGINT
+            tableName: user_app
+    - changeSet:
+        id: INIT-2
+        author: kevin_gomes
+        changes:
+        - createTable:
+            columns:
+            - column:
+                autoIncrement: true
+                constraints:
+                  nullable: false
+                  primaryKey: true
+                  primaryKeyName: user_status_pkey
+                name: id
+                type: INTEGER
+            - column:
+                constraints:
+                  nullable: false
+                name: status
+                type: VARCHAR(20)
+            tableName: user_status
+    - changeSet:
+        id: INIT-3
+        author: kevin_gomes
+        changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: user_status
+            baseTableName: user_app
+            constraintName: user_app_user_status_status_fk
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: id
+            referencedTableName: user_status
+            validate: true
+

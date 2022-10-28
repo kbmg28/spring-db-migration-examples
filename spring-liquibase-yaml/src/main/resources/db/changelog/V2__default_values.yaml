@@ -1,0 +1,33 @@
+databaseChangeLog:
+- changeSet:
+    id: DEFAULT_VALUES-1
+    author: kevin_gomes
+    changes:
+    - insert:
+        columns:
+        - column:
+            name: id
+            valueNumeric: 1
+        - column:
+            name: status
+            value: CREATED
+        tableName: user_status
+    - insert:
+        columns:
+        - column:
+            name: id
+            valueNumeric: 3
+        - column:
+            name: status
+            value: DISABLED
+        tableName: user_status
+    - insert:
+        columns:
+        - column:
+            name: id
+            valueNumeric: 2
+        - column:
+            name: status
+            value: ENABLED
+        tableName: user_status
+
